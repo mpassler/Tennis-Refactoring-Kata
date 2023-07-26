@@ -18,6 +18,10 @@ function scoreLessThan4(score) {
     return score < 4;
 }
 
+function sumOfScoresLessThan6() {
+    return this.score1 + this.score2 < 6;
+}
+
 TennisGame3.prototype.getScore = function () {
     let s;
 
@@ -26,7 +30,7 @@ TennisGame3.prototype.getScore = function () {
         return p[score1];
     }
 
-    if ((scoreLessThan4(this.score1) && scoreLessThan4(this.score2) && (this.score1 + this.score2 < 6))) {
+    if ((scoreLessThan4(this.score1) && scoreLessThan4(this.score2) && sumOfScoresLessThan6.call(this))) {
         s = getScoreCase1(this.score1);
         return isTie.call(this) ? s + "-All" : s + "-" + getScoreCase1(this.score2);
     } else if (isTie.call(this)) {
