@@ -2,8 +2,8 @@ var TennisGame3 = function(p1N, p2N) {
     this.score2 = 0;
     this.score1 = 0;
 
-    this.p1N = p1N;
-    this.p2N = p2N;
+    this.namePlayer1 = p1N;
+    this.namePlayer2 = p2N;
 };
 
 TennisGame3.prototype.getScore = function() {
@@ -15,7 +15,7 @@ TennisGame3.prototype.getScore = function() {
     } else {
         if (this.score1 === this.score2)
             return "Deuce";
-        s = this.score1 > this.score2 ? this.p1N : this.p2N;
+        s = this.score1 > this.score2 ? this.namePlayer1 : this.namePlayer2;
         return ((this.score1 - this.score2) * (this.score1 - this.score2) === 1) ? "Advantage " + s : "Win for " + s;
     }
 };
