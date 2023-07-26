@@ -27,16 +27,14 @@ function getLeadingPlayer() {
 }
 
 TennisGame3.prototype.getScore = function () {
-    let s;
-
     function getScoreCase1(score1) {
         const p = ["Love", "Fifteen", "Thirty", "Forty"];
         return p[score1];
     }
 
     if ((scoreLessThan4(this.score1) && scoreLessThan4(this.score2) && sumOfScoresLessThan6.call(this))) {
-        s = getScoreCase1(this.score1);
-        return isTie.call(this) ? s + "-All" : s + "-" + getScoreCase1(this.score2);
+        let suffix = isTie.call(this) ? "-All" : "-" + getScoreCase1(this.score2);    
+        return getScoreCase1(this.score1) + suffix;
     } else if (isTie.call(this)) {
         return "Deuce";
     } else {
