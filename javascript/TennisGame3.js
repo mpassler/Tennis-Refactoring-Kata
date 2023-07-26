@@ -1,4 +1,4 @@
-var TennisGame3 = function(p1N, p2N) {
+const TennisGame3 = function (p1N, p2N) {
     this.score2 = 0;
     this.score1 = 0;
 
@@ -7,9 +7,9 @@ var TennisGame3 = function(p1N, p2N) {
 };
 
 TennisGame3.prototype.getScore = function() {
-    var s;
+    let s;
     if ((this.score1 < 4 && this.score2 < 4) && (this.score1 + this.score2 < 6)) {
-        var p = ["Love", "Fifteen", "Thirty", "Forty"];
+        const p = ["Love", "Fifteen", "Thirty", "Forty"];
         s = p[this.score1];
         return (this.score1 === this.score2) ? s + "-All" : s + "-" + p[this.score2];
     } else {
