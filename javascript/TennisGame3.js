@@ -15,9 +15,7 @@ TennisGame3.prototype.getScore = function() {
     }
 
     if ((this.score1 < 4 && this.score2 < 4) && (this.score1 + this.score2 < 6)) {
-        let score1 = this.score1;
-        
-        s= getScoreCase1(score1);
+        s= getScoreCase1(this.score1);
         return (this.score1 === this.score2) ? s + "-All" : s + "-" + getScoreCase1(this.score2);
     } else {
         if (this.score1 === this.score2)
