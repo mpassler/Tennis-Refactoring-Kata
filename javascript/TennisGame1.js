@@ -21,30 +21,34 @@ class TennisGame1 {
         } else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
             return this.getScoreWhenGT4();
         } else {
-            for (var i = 1; i < 3; i++) {
-                if (i === 1) tempScore = this.m_score1;
-                else {
-                    score += "-";
-                    tempScore = this.m_score2;
-                }
-                switch (tempScore) {
-                    case 0:
-                        score += "Love";
-                        break;
-                    case 1:
-                        score += "Fifteen";
-                        break;
-                    case 2:
-                        score += "Thirty";
-                        break;
-                    case 3:
-                        score += "Forty";
-                        break;
-                }
+            return this.getScoreLT4(tempScore, score);
+        }
+    };
+
+    getScoreLT4(tempScore, score) {
+        for (var i = 1; i < 3; i++) {
+            if (i === 1) tempScore = this.m_score1;
+            else {
+                score += "-";
+                tempScore = this.m_score2;
+            }
+            switch (tempScore) {
+                case 0:
+                    score += "Love";
+                    break;
+                case 1:
+                    score += "Fifteen";
+                    break;
+                case 2:
+                    score += "Thirty";
+                    break;
+                case 3:
+                    score += "Forty";
+                    break;
             }
         }
         return score;
-    };
+    }
 
     getScoreWhenGT4() {
         var minusResult = this.m_score1 - this.m_score2;
