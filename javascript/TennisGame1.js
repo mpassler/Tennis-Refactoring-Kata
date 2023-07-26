@@ -17,7 +17,7 @@ class TennisGame1 {
         var score = "";
         var tempScore = 0;
         if (this.m_score1 === this.m_score2) {
-            score = this.getScoreWhenEven(score);
+            return this.getScoreWhenEven(score);
         } else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
             var minusResult = this.m_score1 - this.m_score2;
             if (minusResult === 1) score = "Advantage player1";
