@@ -8,10 +8,17 @@ const TennisGame3 = function (p1N, p2N) {
 
 TennisGame3.prototype.getScore = function() {
     let s;
+
+    function getScoreCase1(score1) {
+        const p = ["Love", "Fifteen", "Thirty", "Forty"]; 
+        return p[score1];
+    }
+
     if ((this.score1 < 4 && this.score2 < 4) && (this.score1 + this.score2 < 6)) {
-        const p = ["Love", "Fifteen", "Thirty", "Forty"];
-        s = p[this.score1];
-        return (this.score1 === this.score2) ? s + "-All" : s + "-" + p[this.score2];
+        let score1 = this.score1;
+        
+        s= getScoreCase1(score1);
+        return (this.score1 === this.score2) ? s + "-All" : s + "-" + getScoreCase1(this.score2);
     } else {
         if (this.score1 === this.score2)
             return "Deuce";
