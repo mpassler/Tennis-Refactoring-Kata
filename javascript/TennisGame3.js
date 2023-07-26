@@ -19,13 +19,13 @@ TennisGame3.prototype.getScore = function() {
     }
 
     if ((this.score1 < 4 && this.score2 < 4) && (this.score1 + this.score2 < 6)) {
-        s= getScoreCase1(this.score1);
+        s = getScoreCase1(this.score1);
         return isTie.call(this) ? s + "-All" : s + "-" + getScoreCase1(this.score2);
     } else {
         if (isTie.call(this))
             return "Deuce";
-        s = this.score1 > this.score2 ? this.namePlayer1 : this.namePlayer2;
-        return ((this.score1 - this.score2) * (this.score1 - this.score2) === 1) ? "Advantage " + s : "Win for " + s;
+        let leadingPlayer = this.score1 > this.score2 ? this.namePlayer1 : this.namePlayer2;
+        return ((this.score1 - this.score2) * (this.score1 - this.score2) === 1) ? "Advantage " + leadingPlayer : "Win for " + leadingPlayer;
     }
 };
 
