@@ -14,6 +14,10 @@ function pointDifferenceIsOne() {
     return Math.abs(this.score1 - this.score2) === 1;
 }
 
+function scoreLessThan4(score) {
+    return score < 4;
+}
+
 TennisGame3.prototype.getScore = function () {
     let s;
 
@@ -22,7 +26,7 @@ TennisGame3.prototype.getScore = function () {
         return p[score1];
     }
 
-    if ((this.score1 < 4 && this.score2 < 4) && (this.score1 + this.score2 < 6)) {
+    if ((scoreLessThan4(this.score1) && scoreLessThan4(this.score2) && (this.score1 + this.score2 < 6))) {
         s = getScoreCase1(this.score1);
         return isTie.call(this) ? s + "-All" : s + "-" + getScoreCase1(this.score2);
     } else if (isTie.call(this)) {
