@@ -22,6 +22,10 @@ function sumOfScoresLessThan6() {
     return this.score1 + this.score2 < 6;
 }
 
+function getLeadingPlayer() {
+    return this.score1 > this.score2 ? this.namePlayer1 : this.namePlayer2;
+}
+
 TennisGame3.prototype.getScore = function () {
     let s;
 
@@ -36,7 +40,7 @@ TennisGame3.prototype.getScore = function () {
     } else if (isTie.call(this)) {
         return "Deuce";
     } else {
-        let leadingPlayer = this.score1 > this.score2 ? this.namePlayer1 : this.namePlayer2;
+        let leadingPlayer = getLeadingPlayer.call(this);
         return pointDifferenceIsOne.call(this) ? "Advantage " + leadingPlayer : "Win for " + leadingPlayer;
     }
 };
