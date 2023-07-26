@@ -17,20 +17,7 @@ class TennisGame1 {
         var score = "";
         var tempScore = 0;
         if (this.m_score1 === this.m_score2) {
-            switch (this.m_score1) {
-                case 0:
-                    score = "Love-All";
-                    break;
-                case 1:
-                    score = "Fifteen-All";
-                    break;
-                case 2:
-                    score = "Thirty-All";
-                    break;
-                default:
-                    score = "Deuce";
-                    break;
-            }
+            score = this.getScoreWhenEven(score);
         } else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
             var minusResult = this.m_score1 - this.m_score2;
             if (minusResult === 1) score = "Advantage player1";
@@ -63,8 +50,24 @@ class TennisGame1 {
         return score;
     };
 
+    getScoreWhenEven(score) {
+        switch (this.m_score1) {
+            case 0:
+                score = "Love-All";
+                break;
+            case 1:
+                score = "Fifteen-All";
+                break;
+            case 2:
+                score = "Thirty-All";
+                break;
+            default:
+                score = "Deuce";
+                break;
+        }
+        return score;
+    }
 }
-
 
 if (typeof window === "undefined") {
     module.exports = TennisGame1;
