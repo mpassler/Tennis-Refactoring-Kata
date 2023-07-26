@@ -11,7 +11,7 @@ function isTie() {
 }
 
 function pointDifferenceIsOne() {
-    return (this.score1 - this.score2) * (this.score1 - this.score2) === 1;
+    return Math.abs(this.score1 - this.score2) === 1;
 }
 
 TennisGame3.prototype.getScore = function() {
