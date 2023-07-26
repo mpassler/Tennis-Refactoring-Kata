@@ -19,11 +19,7 @@ class TennisGame1 {
         if (this.m_score1 === this.m_score2) {
             return this.getScoreWhenEven(score);
         } else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
-            var minusResult = this.m_score1 - this.m_score2;
-            if (minusResult === 1) score = "Advantage player1";
-            else if (minusResult === -1) score = "Advantage player2";
-            else if (minusResult >= 2) score = "Win for player1";
-            else score = "Win for player2";
+            return this.getScoreWhenGT4();
         } else {
             for (var i = 1; i < 3; i++) {
                 if (i === 1) tempScore = this.m_score1;
@@ -49,6 +45,14 @@ class TennisGame1 {
         }
         return score;
     };
+
+    getScoreWhenGT4() {
+        var minusResult = this.m_score1 - this.m_score2;
+        if (minusResult === 1) return "Advantage player1";
+        else if (minusResult === -1) return "Advantage player2";
+        else if (minusResult >= 2) return "Win for player1";
+        else return "Win for player2";
+    }
 
     getScoreWhenEven(score) {
         switch (this.m_score1) {
